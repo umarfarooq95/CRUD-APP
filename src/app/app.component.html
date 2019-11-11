@@ -23,17 +23,30 @@
 
   <div class="row justify-content-center" style="margin-top:20px;">
       <div class="col-md-6">
-          <ul class="list-group list-group-horizontal-xl" *ngFor="let todo of todos">
-              <li class="list-group-item">{{todo.taskName}}</li>
-              <li class="list-group-item">
-                  <div class="form-group form-check">
+          <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">TaskName</th>
+                  <th scope="col">Action</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let todo of todos;let i = index">
+                  <th scope="row">{{i}}</th>
+                  <td>{{todo.taskName}}</td>
+                  <td>
+                    <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input"
                         id="done"  [checked]="todo.done" (change)="onUpdateTodo(todo)">
                       <label class="form-check-label" for="exampleCheck1">Done</label>
-                  </div>
-              </li>
-              <li class="list-group-item">{{todo.status}}</li>
-            </ul>
+                    </div>
+                  </td>
+                  <td>{{todo.status}}</td>
+                </tr>
+              </tbody>
+            </table>
       </div>
     </div>
 
