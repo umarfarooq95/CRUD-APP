@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center">
+          TODO App
+        </h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="input-group input-group-lg">
+            <div class="input-group">
+              <input type="text"
+                class="form-control" placeholder="Add Task" [(ngModel)]="taskName">
+              <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary"
+                 type="button" (click)="onAddTodo()">Add</button>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" style="margin-top:20px;">
+      <div class="col-md-6">
+          <ul class="list-group list-group-horizontal-xl" *ngFor="let todo of todos">
+              <li class="list-group-item">{{todo.taskName}}</li>
+              <li class="list-group-item">
+                  <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input"
+                        id="done"  [checked]="todo.done" (change)="onUpdateTodo(todo)">
+                      <label class="form-check-label" for="exampleCheck1">Done</label>
+                  </div>
+              </li>
+              <li class="list-group-item">{{todo.status}}</li>
+            </ul>
+      </div>
+    </div>
+
+</div>
